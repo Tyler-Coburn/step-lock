@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "StepLock",
+    "slug": "step-lock",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "steplock",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#1a1a2e"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMotionUsageDescription": "StepLock needs access to your motion data to count your steps and unlock apps."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a1a2e"
+      },
+      "permissions": [
+        "android.permission.ACTIVITY_RECOGNITION"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sensors"
+    ]
+  }
+}

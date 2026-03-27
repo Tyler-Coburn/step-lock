@@ -1,0 +1,31 @@
+{
+  "name": "step-lock",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.1.1",
+    "@react-native-async-storage/async-storage": "^3.0.2",
+    "expo": "^55.0.8",
+    "expo-constants": "^55.0.9",
+    "expo-font": "^55.0.4",
+    "expo-linking": "^55.0.8",
+    "expo-router": "^55.0.7",
+    "expo-sensors": "^55.0.9",
+    "expo-status-bar": "^55.0.4",
+    "react-native": "^0.84.1",
+    "react-native-safe-area-context": "^5.7.0",
+    "react-native-screens": "^4.24.0",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "babel-preset-expo": "^55.0.12"
+  },
+  "private": true
+}
