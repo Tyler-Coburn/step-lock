@@ -14,6 +14,7 @@ export async function getStepGoal(): Promise<number> {
     const val = await AsyncStorage.getItem(STORAGE_KEYS.STEP_GOAL);
     return val ? parseInt(val, 10) : DEFAULT_STEP_GOAL;
   } catch (e) {
+    console.warn('getStepGoal error, using default', e);
     return DEFAULT_STEP_GOAL;
   }
 }
@@ -31,6 +32,7 @@ export async function getLockedApps(): Promise<string[]> {
     const val = await AsyncStorage.getItem(STORAGE_KEYS.LOCKED_APPS);
     return val ? JSON.parse(val) : [];
   } catch (e) {
+    console.warn('getLockedApps error, returning empty list', e);
     return [];
   }
 }
@@ -48,6 +50,7 @@ export async function getTodaySteps(): Promise<number> {
     const val = await AsyncStorage.getItem(STORAGE_KEYS.TODAY_STEPS);
     return val ? parseInt(val, 10) : 0;
   } catch (e) {
+    console.warn('getTodaySteps error, returning 0', e);
     return 0;
   }
 }
@@ -64,6 +67,7 @@ export async function getLastResetDate(): Promise<string | null> {
   try {
     return await AsyncStorage.getItem(STORAGE_KEYS.LAST_RESET_DATE);
   } catch (e) {
+    console.warn('getLastResetDate error', e);
     return null;
   }
 }
@@ -81,6 +85,7 @@ export async function getAutoReset(): Promise<boolean> {
     const val = await AsyncStorage.getItem(STORAGE_KEYS.AUTO_RESET);
     return val !== 'false'; // default true
   } catch (e) {
+    console.warn('getAutoReset error, defaulting to true', e);
     return true;
   }
 }

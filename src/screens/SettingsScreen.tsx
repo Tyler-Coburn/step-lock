@@ -45,7 +45,9 @@ export default function SettingsScreen() {
         setHasUsagePermission(usage);
         const accessibility = await AppBlockerModule.checkAccessibilityPermission();
         setHasAccessibilityPermission(accessibility);
-      } catch (_) {}
+      } catch (e) {
+        console.warn('SettingsScreen: failed to check permissions', e);
+      }
     }
   };
 
