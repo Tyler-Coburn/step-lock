@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Pedometer } from 'expo-sensors';
-import { AppState, AppStateStatus } from 'react-native';
+import { AppState, AppStateStatus, NativeModules, Platform } from 'react-native';
 import {
   saveTodaySteps,
   getTodaySteps,
@@ -8,6 +8,14 @@ import {
   getLastResetDate,
   getStepGoal,
 } from '../utils/storage';
+
+function notifyNative(steps: number, goal: number): void {
+  if (Platform.OS === 'android' && NativeModules.AppBlockerModule) {
+    try {
+      NativeModules.AppBlockerModule.updateBlockStatus(steps >= goal, steps, goal);
+    } catch (_) {}
+  }
+}
 
 function getTodayDateString(): string {
   return new Date().toISOString().split('T')[0];
@@ -92,6 +100,11 @@ export function useStepCounter(): StepCounterState {
       subscriptionRef.current?.remove();
     };
   }, [loadGoal, startPedometer, checkMidnightReset]);
+
+  // Keep native layer in sync whenever steps or goal changes
+  useEffect(() => {
+    notifyNative(steps, goal);
+  }, [steps, goal]);
 
   const resetSteps = useCallback(async () => {
     await saveTodaySteps(0);
