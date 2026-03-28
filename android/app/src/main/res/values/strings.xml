@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StepLock</string>
+    <string name="accessibility_service_description">StepLock monitors which app is in the foreground and blocks selected social media apps until your step goal is met.</string>
+</resources>

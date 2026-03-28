@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "StepLock",
+    "slug": "step-lock",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.steplock",
+      "permissions": [
+        "android.permission.ACTIVITY_RECOGNITION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+        "android.permission.RECEIVE_BOOT_COMPLETED"
+      ]
+    }
+  }
+}
